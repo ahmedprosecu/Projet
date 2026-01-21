@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIGISAFE</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <main class="app-shell">
+    <div class="window-header">
+      <span class="window-close">×</span>
+    </div>
+
+    <section id="login-screen" class="screen active">
+      <header class="brand">
+        <h1>VIGISAFE</h1>
+        <p>PROTECTION DU TRAVAILLEUR ISOLÉ</p>
+      </header>
+
+      <form id="login-form" class="login-form">
+        <label>
+          NOM
+          <input type="text" name="last_name" required />
+        </label>
+        <label>
+          PRÉNOM
+          <input type="text" name="first_name" required />
+        </label>
+        <label>
+          CODE AGENT
+          <input type="text" name="agent_code" required />
+        </label>
+        <button type="submit" class="btn outline">Connexion</button>
+      </form>
+    </section>
+
+    <section id="app-screen" class="screen">
+      <header class="top-bar">
+        <div>
+          <h1>VIGISAFE</h1>
+          <p>PROTECTION DU TRAVAILLEUR ISOLÉ</p>
+        </div>
+        <div class="user-badge" id="user-badge">NOM Prénom</div>
+      </header>
+      <div class="divider"></div>
+
+      <div class="content">
+        <section class="panel">
+          <h2>Surveillance</h2>
+          <div class="status">
+            <span>Statut</span>
+            <span class="pill" id="status-pill">INACTIF</span>
+          </div>
+
+          <div class="actions">
+            <button id="btn-activate" class="btn lime">Activer</button>
+            <button id="btn-pause" class="btn amber hidden">Pause</button>
+            <button id="btn-resume" class="btn amber hidden">Reprendre</button>
+            <button id="btn-deactivate" class="btn danger hidden">Désactiver</button>
+          </div>
+
+          <div id="pause-reason" class="pause-reason hidden">
+            <label>
+              Motif de la pause
+              <input type="text" id="pause-input" placeholder="Obligatoire ..." />
+            </label>
+          </div>
+
+          <div id="report-sent" class="report hidden">
+            <p>Rapport envoyé</p>
+            <span class="mail-icon">✉️</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Mon activités</h2>
+          <ul id="activity-list" class="activity-list">
+            <li>22 h 03 : connexion</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section id="alert-screen" class="screen overlay hidden">
+      <header class="top-bar">
+        <div>
+          <h1>VIGISAFE</h1>
+          <p>PROTECTION DU TRAVAILLEUR ISOLÉ</p>
+        </div>
+        <div class="timer" id="alert-timer">00 : 00</div>
+      </header>
+      <div class="divider alert"></div>
+
+      <div class="alert-body">
+        <h2>ALERTE</h2>
+        <p id="alert-text">NOM Prénom, confirmez votre présence</p>
+        <button id="btn-present" class="btn lime">Je suis présent</button>
+        <div class="status">
+          <span>Statut</span>
+          <span class="pill" id="alert-status">EN ATTENTE</span>
+        </div>
+        <p id="alert-sent" class="alert-sent hidden">ALERTE ENVOYÉE !</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
